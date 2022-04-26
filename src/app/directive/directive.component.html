@@ -1,0 +1,150 @@
+<header>
+  <h2>Les directives</h2>
+</header>
+
+<ul>
+  <li>Les directives structurelles : Elles ont pour but de modifier le DOM en ajoutant,
+    enlevant ou replaçant un élément du DOM.
+  </li>
+
+  <li>Les directives d'attributs : Elles ont pour but de modifier l'apparence ou le
+    comportement d'un élément.
+  </li>
+</ul>
+
+<p>Tous les attributs HTML, existe sous la forme d'une directive angular</p>
+<p>Un composant Angular, est une directive particulière (1 fichier .ts (logique) et 1 fichier .html (vue))</p>
+
+<section>
+  <h3>ngIf</h3>
+
+  <button class="btn btn-outline-primary btn-sm mb-3" (click)="show = !show">Toggle</button>
+
+  <!-- emmet.io -->
+  <p *ngIf="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque commodi corporis eos et
+    excepturi, facere hic illo inventore itaque iusto molestiae, nobis porro recusandae soluta vero voluptatibus. Atque,
+    suscipit?</p>
+
+  <p *ngIf="show; else elseBlock">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque commodi corporis
+    eos et excepturi, facere hic illo inventore itaque iusto molestiae, nobis porro recusandae soluta vero voluptatibus.
+    Atque, suscipit?</p>
+
+  <ng-template #elseBlock>
+    <p>Lorem ipsum dolor sit amet, [...] Atque, suscipit?</p>
+  </ng-template>
+
+  <p *ngIf="getMessage() as message">{{ message }}</p>
+  <p *ngIf="getMessage(); let message">{{ message }}</p>
+
+</section>
+
+<section>
+  <h3>ngForOf</h3>
+
+  <!-- odd/even : boolean -->
+  <!-- first/last : boolean -->
+  <ul>
+    <li *ngFor="let letter of ['a', 'b', 'c']; index as index; last as last">
+      {{ index }} - {{ letter }} <span *ngIf="last">Fini !</span>
+    </li>
+  </ul>
+
+</section>
+
+<section>
+  <h3>ngSwitch</h3>
+
+  <div class="btn-group btn-group-sm my-3">
+    <button class="btn btn-outline-primary" (click)="display = 'vertical'">Vertical</button>
+    <button class="btn btn-outline-primary" (click)="display = 'horizontal'">Horizontal</button>
+    <button class="btn btn-outline-primary" (click)="display = undefined">Aucun</button>
+  </div>
+
+  <div [ngSwitch]="display">
+
+    <!-- ul.list-unstyled>li*5>{Element $} -->
+    <ul class="list-unstyled" *ngSwitchCase=" 'vertical' ">
+      <li>Element 1</li>
+      <li>Element 2</li>
+      <li>Element 3</li>
+      <li>Element 4</li>
+      <li>Element 5</li>
+    </ul>
+
+    <!-- ul.list-unstyled>li.list-inline-item*5>{Element $} -->
+    <ul class="list-unstyled" *ngSwitchCase=" 'horizontal' ">
+      <li class="list-inline-item">Element 1</li>
+      <li class="list-inline-item">Element 2</li>
+      <li class="list-inline-item">Element 3</li>
+      <li class="list-inline-item">Element 4</li>
+      <li class="list-inline-item">Element 5</li>
+    </ul>
+
+    <p *ngSwitchDefault>Choisissez un mode d'affichage</p>
+
+  </div>
+
+</section>
+
+<section>
+  <h3>ngClass</h3>
+
+  <p [ngClass]="'text-info font-monospace'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque fugit
+    illum necessitatibus, optio quo vel. Aperiam earum incidunt maxime possimus qui repellat repudiandae ut, velit! Amet
+    corporis culpa inventore sed!</p>
+
+  <p [ngClass]="classes">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam beatae doloribus ea
+    earum expedita fuga fugit, illo magnam mollitia odio, officia quae quibusdam repellat reprehenderit soluta tenetur
+    voluptas voluptatibus.</p>
+
+  <div class="btn-group btn-group-sm my-3">
+    <button class="btn btn-outline-primary" (click)="payment = 'done'">Validé</button>
+    <button class="btn btn-outline-primary" (click)="payment = 'pending'">En attente</button>
+    <button class="btn btn-outline-primary" (click)="payment = 'cancel'">Annulé</button>
+  </div>
+
+  <p>Etat du paiement: <span class="badge" [ngClass]="{
+    'bg-warning': payment == 'pending',
+    'bg-success': payment == 'done',
+    'bg-danger': payment == 'cancel'
+  }">{{ payment | titlecase }}</span></p>
+
+</section>
+
+<section>
+  <h3>ngStyle</h3>
+
+  <div class="btn-group btn-group-sm my-3">
+    <button class="btn btn-outline-primary" (click)="progress = 10; bgcolor = 'red'">10%</button>
+    <button class="btn btn-outline-primary" (click)="progress = 33; bgcolor = 'orange'">33%</button>
+    <button class="btn btn-outline-primary" (click)="progress = 75; bgcolor = 'limegreen'">75%</button>
+  </div>
+
+  <div class="progress my-3">
+    <div class="progress-bar progress-bar-animated progress-bar-striped"
+         [ngStyle]="{ 'width': progress+'%', 'background-color': bgcolor }"></div>
+  </div>
+
+  <div class="progress my-3">
+    <div class="progress-bar progress-bar-animated progress-bar-striped"
+         [style.width]="progress+'%'" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

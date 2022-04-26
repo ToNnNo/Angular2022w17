@@ -1,0 +1,104 @@
+<header>
+  <h2>Présentation</h2>
+</header>
+
+<section>
+  <p> 1 + 2 = {{ 1 + 2 }}</p>
+
+  <p>Bonjour {{ name }}</p>
+
+  <p>{{ product.name }} @ {{ product.price }}&euro;</p>
+
+  <h3>Context échappement</h3>
+  <div>{{ html }}</div> <!-- XSS -->
+
+  <h3>Context non échappé</h3>
+  <div [innerHTML]="html"></div> <!-- [] = directives; [innerHTML] est une directive d'attribut -->
+
+  <p>
+    Les directives s'utilisent avec des [] ou sous une forme identique à un attribut HTML.<br/>
+    Attention les directives ne font pas partis de la Norme HTML.<br/>
+    Angular propose d'utiliser tous les attributs HTML sous la forme d'une directive Angular.
+  </p>
+
+  <div style="display: flex">
+    <div>
+      <h3>Avec un attribut HTML</h3>
+      <img src="{{ source }}" alt="Affiche de 'The Mandalorian'" style="max-width: 100%"/>
+    </div>
+    <div>
+      <h3>Avec la directive Angular</h3>
+      <img [src]="source" alt="Affiche de 'The Mandalorian'" style="max-width: 100%"/>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Les Evènements</h3>
+
+  <div>
+    <button type="button" class="btn btn-outline-primary" (click)="clicked()">Cliquez ici</button>
+  </div>
+
+  <p>
+    <a href="#" (click)="confirmation($event)">Supprimer ?</a>
+  </p>
+
+</section>
+
+<section>
+  <h3>Two Way Data Binding</h3>
+  <p>MVVM ou MWM = Model View, View Model</p>
+  <p>Banana in box = [()]</p>
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Entrer votre message" [(ngModel)]="message" />
+    <button type="button" class="btn btn-outline-primary" (click)="getMessageValue()">Voir le message</button>
+  </div>
+  <p>{{ message }}</p>
+
+</section>
+
+<section>
+  <h3>Les variables de template</h3>
+  <p>Les variables de template se déclare avec <b>#nom</b> sur une balise HTML.
+    (document.querySelector() ou document.getElementById())</p>
+  <p>detectChange() = responsable de mettre à jour les vues en Angular (ngModel et event)</p>
+
+  <div>
+    <input type="text" class="form-control" placeholder="Entre un message" #input (keyup.enter)="false" />
+  </div>
+
+  <p>{{ input }}</p>
+  <p>type: {{ input.type }}</p>
+  <p>class: {{ input.className }}</p>
+  <p>value: {{ input.value }}</p>
+
+</section>
+
+<section>
+  <h3>Directive ngForOf</h3>
+
+  <ul>
+    <li *ngFor="let name of users; index as key">{{ name }} (index = {{ key }})</li>
+  </ul>
+
+</section>
+
+<!--
+  Exercice: Créer une todolist
+
+  Créer un nouveau composant + l'afficher
+
+  afficher une liste de tache à effectuer (liste à puce)
+  ajouter une tache avec un champs de <input />
+  une tache peut s'ajouter en appuyant sur "entrer" ou sur un bouton
+
+  "clic" sur un element de la liste, supprime la tache
+-->
+
+<!--
+  Object Array
+  push(value) -> ajoute une valeur à la fin du tableau
+  splice(index, qte) -> supprimer une ou plusieurs valeurs à partir de l'index donné
+-->

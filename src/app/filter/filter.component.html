@@ -1,0 +1,86 @@
+<header>
+  <h2>Les filtres (pipes)</h2>
+</header>
+
+<div class="row">
+  <div class="col">
+    <section>
+      <h3>Chaine de caractère</h3>
+
+      <!-- uppercase, lowercase, titlecase -->
+      <p>{{ 'Hello World' | uppercase }}</p>
+    </section>
+
+    <section>
+      <h3>Numérique</h3>
+
+      <p>{{ 12345678.09 | number }}</p>
+
+      <p>1/3 = {{ 1/3 | number: '2.2-2' }}</p>
+      <p>1/16 = {{ 1/16 | number: '1.2-6' }}</p>
+
+      <p>1/3 = {{ 1/3 | percent }}</p>
+    </section>
+
+    <section>
+      <h3>Monetaire</h3>
+
+      <p>Code: {{ 21345678.99 | currency: 'CAD': 'code' }}</p>
+      <p>Symbol: {{ 21345678.99 | currency: 'CAD': 'symbol' }}</p>
+      <p>Symbol Narrow: {{ 21345678.99 | currency: 'CAD': 'symbol-narrow' }}</p>
+    </section>
+  </div>
+  <div class="col">
+    <section>
+      <h3>Date</h3>
+
+      <p>{{ now }}</p>
+
+      <p>{{ now | date: 'dd/MM/yyyy' }}</p>
+      <p>{{ now | date: 'hh:mm:ss' }}</p>
+
+      <p>Paris: {{ now | date: 'longTime' }}</p>
+      <p>Londres: {{ now | date: 'longTime': '+0100' }}</p>
+      <p>Mumbai: {{ now | date: 'longTime': '+0530' }}</p>
+    </section>
+
+    <section>
+      <h3>Slice</h3>
+
+      <ul><!-- [0; 5[ -->
+        <li *ngFor="let name of cfas | slice: start: end">{{ name }}</li>
+      </ul>
+
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-outline-primary" (click)="prev()" [disabled]="start <= 0"> &laquo; Prev </button>
+        <button class="btn btn-outline-primary" (click)="next()" [disabled]="end >= cfas.length"> Next &raquo; </button>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
