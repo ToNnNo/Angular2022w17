@@ -12,6 +12,15 @@ export class LocaleComponent implements OnInit {
 
   now = new Date();
 
+  /**
+   *  public locale: string;
+   *
+   *  constructor(locale: string) {
+   *    this.locale = locale;
+   *  }
+   *
+   */
+
   constructor(
     @Inject(LOCALE_ID) public locale: string,
     @Inject(DEFAULT_CURRENCY_CODE) public devise: string
