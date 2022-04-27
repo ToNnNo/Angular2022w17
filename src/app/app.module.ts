@@ -10,13 +10,16 @@ import ja from '@angular/common/locales/ja';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { PresentationComponent } from './presentation/presentation.component';
-import { TodolistComponent } from './todolist/todolist.component';
-import { HomeComponent } from './home/home.component';
-import { NotfoundComponent } from './notfound/notfound.component';
-import { FilterComponent } from './filter/filter.component';
-import { DirectiveComponent } from './directive/directive.component';
-import { LocaleComponent } from './locale/locale.component';
+import { PresentationComponent } from './components/presentation/presentation.component';
+import { TodolistComponent } from './components/todolist/todolist.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { DirectiveComponent } from './components/directive/directive.component';
+import { LocaleComponent } from './components/locale/locale.component';
+import { CustomPipeComponent } from './components/custom-pipe/custom-pipe.component';
+import { PipelindromePipe } from './pipes/pipelindrome/pipelindrome.pipe';
+import { SortPipe } from './pipes/sort/sort.pipe';
 
 registerLocaleData(fr);
 registerLocaleData(de);
@@ -31,7 +34,10 @@ registerLocaleData(ja);
     NotfoundComponent,
     FilterComponent,
     DirectiveComponent,
-    LocaleComponent
+    LocaleComponent,
+    CustomPipeComponent,
+    PipelindromePipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

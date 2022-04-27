@@ -1,0 +1,35 @@
+<header>
+  <h2>Les filtres personnalisés</h2>
+</header>
+
+<div class="mb-3">
+  <input type="text" class="form-control" placeholder="Entre un palindrome" [(ngModel)]="palindrome" />
+</div>
+<p>{{ palindrome | pipelindrome }}</p>
+
+<h3>Products</h3>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>
+      <button class="btn btn-link p-0 fw-bold" (click)="sortBy('name')">Name</button>
+    </th>
+    <th>
+      <button class="btn btn-link p-0 fw-bold" (click)="sortBy('price')">Price</button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products | sort: property: asc">
+    <td>{{ product.name }}</td>
+    <td>{{ product.price | currency }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<!--
+  Créer un pipe sort qui permet de trier la liste des products
+  dans l'ordre croissant et décroissant
+  sur le paramètre name ou price
+-->
