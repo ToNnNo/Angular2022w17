@@ -15,6 +15,9 @@ export class CustomPipeComponent implements OnInit {
   asc = true;
   property!: string;
 
+  sourceImg = null;
+  // sourceImg = 'assets/images/mandalorian.jpg';
+
   constructor() { }
 
   ngOnInit(): void {

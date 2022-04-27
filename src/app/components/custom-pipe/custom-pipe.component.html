@@ -7,6 +7,13 @@
 </div>
 <p>{{ palindrome | pipelindrome }}</p>
 
+<h3>Default Image Pipe</h3>
+
+<div>
+  <img [src]="sourceImg | defaultImage: 'https://st3.depositphotos.com/1322515/35964/v/1600/depositphotos_359648638-stock-illustration-no-image-available-icon.jpg'"
+       alt="Exemple de création de Pipe personnalisé" width="300" />
+</div>
+
 <h3>Products</h3>
 
 <table class="table">

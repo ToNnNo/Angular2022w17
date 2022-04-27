@@ -20,6 +20,9 @@ import { LocaleComponent } from './components/locale/locale.component';
 import { CustomPipeComponent } from './components/custom-pipe/custom-pipe.component';
 import { PipelindromePipe } from './pipes/pipelindrome/pipelindrome.pipe';
 import { SortPipe } from './pipes/sort/sort.pipe';
+import { FormulaireComponent } from './components/formulaire/formulaire.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { DefaultImagePipe } from './pipes/defaultImage/default-image.pipe';
 
 registerLocaleData(fr);
 registerLocaleData(de);
@@ -37,7 +40,10 @@ registerLocaleData(ja);
     LocaleComponent,
     CustomPipeComponent,
     PipelindromePipe,
-    SortPipe
+    SortPipe,
+    FormulaireComponent,
+    SignupComponent,
+    DefaultImagePipe
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,8 @@ import {FilterComponent} from "./components/filter/filter.component";
 import {DirectiveComponent} from "./components/directive/directive.component";
 import {LocaleComponent} from "./components/locale/locale.component";
 import {CustomPipeComponent} from "./components/custom-pipe/custom-pipe.component";
+import {FormulaireComponent} from "./components/formulaire/formulaire.component";
+import {SignupComponent} from "./components/signup/signup.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'directive', component: DirectiveComponent },
   { path: 'locale', component: LocaleComponent },
   { path: 'custom-pipe', component: CustomPipeComponent },
+  { path: 'formulaire', component: FormulaireComponent },
+  { path: 'inscription', component: SignupComponent },
   { path: '**', component: NotfoundComponent }
 ];
 
