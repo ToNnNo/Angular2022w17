@@ -4,26 +4,31 @@
 
 <p class="small">Penser à importer le module <strong>ReactiveFormsModule</strong> dans le <em>AppModule</em></p>
 
-<form>
+<form [formGroup]="form" (ngSubmit)="inscription()">
 
   <div class="mb-3">
     <label for="email" class="form-label">Email: </label>
-    <input type="text" id="email" class="form-control" placeholder="Adresse email ..." />
+    <input type="text" id="email" class="form-control" placeholder="Adresse email ..." formControlName="email" />
+    <p class="text-danger" *ngIf="validate('email') as message">{{ message }}</p>
   </div>
 
   <div class="mb-3">
     <label for="password" class="form-label">Mot de passe: </label>
-    <input type="password" id="password" class="form-control" placeholder="Mot de passe ..." />
+    <input type="password" id="password" class="form-control" placeholder="Mot de passe ..." formControlName="password" />
+    <p class="text-danger" *ngIf="validate('password') as message">{{ message }}</p>
   </div>
 
   <div class="mb-3">
     <label for="confirmation" class="form-label">Confirmation: </label>
-    <input type="password" id="confirmation" class="form-control" placeholder="Confirmer le mot de passe ..." />
+    <input type="password" id="confirmation" class="form-control" placeholder="Confirmer le mot de passe ..."
+           formControlName="confirm" />
+    <p class="text-danger" *ngIf="validate('confirm') as message">{{ message }}</p>
   </div>
 
   <div class="form-check mb-3">
-    <input type="checkbox" id="CGU" class="form-check-input" />
+    <input type="checkbox" id="CGU" class="form-check-input" formControlName="terms" />
     <label class="form-check-label" for="CGU">Conditions Générales d'Utilisation</label>
+    <p class="text-danger" *ngIf="validate('terms') as message">{{ message }}</p>
   </div>
 
   <button type="submit" class="btn btn-outline-primary">S'inscrire</button>
