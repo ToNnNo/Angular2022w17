@@ -1,0 +1,48 @@
+
+<p class="small">Penser à importer le module <strong>HttpClientModule</strong> dans le <em>AppModule</em></p>
+
+<button class="btn btn-outline-primary" (click)="addUser()">Ajouter un nouvel utilisateur</button>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users$ | async">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+    <td>
+      <app-address [address]="user.address"></app-address>
+    </td>
+  </tr>
+  </tbody>
+</table>

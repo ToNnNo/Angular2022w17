@@ -23,7 +23,10 @@ export class SecureRouteGuard implements CanActivate {
       return true;
     }
 
-    return this.router.createUrlTree([`/authentification`], { queryParams: { 'redirect': state.url}});
+    return this.router.createUrlTree(
+      [`/authentification`],
+      { queryParams: { 'redirect': state.url}}
+    );
 
     /**
      * Exercice:

@@ -1,6 +1,7 @@
 import {DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import { registerLocaleData } from "@angular/common";
 import fr from '@angular/common/locales/fr';
@@ -28,6 +29,10 @@ import { ObservableComponent } from './components/observable/observable.componen
 import { HeaderComponent } from './components/header/header.component';
 import { ParametersComponent } from './components/parameters/parameters.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { HttpComponent } from './components/http/http.component';
+import { AddressComponent } from './components/address/address.component';
+import {AuthenticationInterceptor} from "./interceptors/authentication.interceptor";
+
 
 registerLocaleData(fr);
 registerLocaleData(de);
@@ -53,18 +58,22 @@ registerLocaleData(ja);
     ObservableComponent,
     HeaderComponent,
     ParametersComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    HttpComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
-    { provide: 'SecureRoute', useValue: () => true }
+    { provide: 'SecureRoute', useValue: () => true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
