@@ -1,0 +1,42 @@
+<!--header>
+  <h2>Les Observables</h2>
+</header-->
+
+<p>
+  Consulter la doc <a href="https://rxjs-dev.firebaseapp.com/api" target="_blank"> RxJS </a>
+  (Reactive Extensions for JavaScript)
+</p>
+
+<ul>
+  <li>Outil asynchrone (non bloquant)</li>
+  <li>Un Observable peut émettre plusieurs jeux de résultat au court du temps</li>
+  <li>Un Observable a 3 états:
+    <ul>
+      <li>La réussite: next() - Retourne des valeurs</li>
+      <li>L'échec: error() - Retourne une erreur, et ferme la communication</li>
+      <li>Terminé: complete() - Termine la communication</li>
+    </ul>
+  </li>
+  <li>Pour obtenir une information d'un observable, il faut s'y abonner (subscribe())</li>
+  <li>Je peux me désabonner d'un observable (unsubscribe())</li>
+</ul>
+
+<button class="btn btn-outline-primary mb-3" (click)="synchroniser()" [disabled]="disabled">Synchroniser</button>
+<p *ngIf="state">{{ state }}</p>
+
+<ul>
+  <li *ngFor="let value of numbers">{{ value }}</li>
+</ul>
+
+
+<h3>Subject</h3>
+
+<button class="btn btn-outline-primary mb-3" (click)="subject()">Subject</button>
+
+<h3>behaviorSubject</h3>
+
+<button class="btn btn-outline-primary mb-3" (click)="behaviorSubject()">behaviorSubject</button>
+
+<h3>replaySubject</h3>
+
+<button class="btn btn-outline-primary mb-3" (click)="replaySubject()">replaySubject</button>

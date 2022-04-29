@@ -23,6 +23,11 @@ import { SortPipe } from './pipes/sort/sort.pipe';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { DefaultImagePipe } from './pipes/defaultImage/default-image.pipe';
+import { ServiceComponent } from './components/service/service.component';
+import { ObservableComponent } from './components/observable/observable.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ParametersComponent } from './components/parameters/parameters.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 registerLocaleData(fr);
 registerLocaleData(de);
@@ -43,7 +48,12 @@ registerLocaleData(ja);
     SortPipe,
     FormulaireComponent,
     SignupComponent,
-    DefaultImagePipe
+    DefaultImagePipe,
+    ServiceComponent,
+    ObservableComponent,
+    HeaderComponent,
+    ParametersComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +64,7 @@ registerLocaleData(ja);
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
+    { provide: 'SecureRoute', useValue: () => true }
   ],
   bootstrap: [AppComponent]
 })

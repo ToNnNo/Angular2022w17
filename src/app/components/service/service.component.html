@@ -1,0 +1,13 @@
+<header>
+  <h2>Les Services</h2>
+</header>
+
+<p class="lead">Casear Cipher</p>
+
+<div class="input-group my-3">
+  <input type="text" class="form-control" placeholder="Entrer votre message secret"
+         [(ngModel)]="secrete" (keyup.enter)="crypt()" />
+  <button class="btn btn-outline-primary" (click)="crypt()">Crypter</button>
+</div>
+
+<p>Résultat: {{ crypted }}</p>

@@ -1,0 +1,9 @@
+
+<button class="btn btn-outline-primary" (click)="signIn()" *ngIf="!state; else logout">Se connecter</button>
+
+<ng-template #logout>
+  <h3>Bonjour John Doe</h3>
+
+  <button class="btn btn-outline-danger" (click)="signOut()">Se déconnecter</button>
+
+</ng-template>

@@ -1,0 +1,39 @@
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/parameters/john">John</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/parameters/jane">Jane</a>
+  </li>
+</ul>
+
+
+<div *ngIf="name">
+
+  <button class="btn btn-outline-dark btn-sm" (click)="goBack()">Retour</button>
+
+  <p>Hello {{ name | titlecase }}</p>
+
+  <p *ngIf="page == 1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum enim fugit ipsum magni mollitia
+    qui quibusdam quo soluta temporibus voluptatem. Amet dignissimos distinctio excepturi inventore ipsam nostrum, saepe
+    sapiente ut!</p>
+
+  <p *ngIf="page == 2">
+    <span>Ad culpa delectus ipsum laboriosam officia perferendis. Alias aperiam asperiores dolor illum obcaecati
+      quibusdam soluta voluptate. Et harum natus neque odit voluptate.</span><span>Ad iste minus officiis pariatur
+    perspiciatis quo saepe soluta unde! Aspernatur dolorem ducimus esse, fuga inventore, iusto laborum maiores minus
+    natus necessitatibus odio perspiciatis provident quae sed sunt suscipit, ullam.</span><span>Alias fugiat maiores
+    nesciunt odio perferendis, reiciendis vel! Architecto atque consequatur eum excepturi harum, incidunt ipsam ipsum
+    labore magnam magni, maiores minus natus nisi nostrum officia, quaerat quidem sint voluptatum!</span><span>Ab
+    aliquam atque, delectus, dicta dolor dolorem doloremque eligendi fugit magnam nam odio qui quia quis sequi
+    similique velit voluptatum. Asperiores dolor eligendi excepturi explicabo nihil possimus quod ratione similique.
+  </span><span>Aliquam asperiores atque dicta doloribus ducimus eaque, enim eos et facilis fuga hic ipsa, laudantium
+    libero modi neque nostrum perferendis quae quaerat quas, sapiente sint sit unde voluptatem. Natus, necessitatibus.
+  </span>
+  </p>
+
+  <footer>
+    <a [routerLink]="['/parameters', name]" [queryParams]="{ 'page': 1 }">Page 1</a> -
+    <a [routerLink]="['/parameters', name]" [queryParams]="{ 'page': 2 }">Page 2</a>
+  </footer>
+</div>
