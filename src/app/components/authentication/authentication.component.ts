@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PageTitleService} from "../../services/page-title.service";
 import {AuthenticationService} from "../../services/authentication.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-authentication',
@@ -13,7 +14,9 @@ export class AuthenticationComponent implements OnInit {
 
   constructor(
     private title: PageTitleService,
-    private authentication: AuthenticationService
+    private authentication: AuthenticationService,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +26,11 @@ export class AuthenticationComponent implements OnInit {
 
   public signIn(): void {
     this.state = this.authentication.logIn();
+
+    if( this.route.snapshot.queryParamMap.has('redirect') ) {
+      this.router.navigateByUrl( this.route.snapshot.queryParamMap.get('redirect')! );
+    }
+
   }
 
   public signOut(): void {
